@@ -23,7 +23,7 @@ ui <- fluidPage(
         actionButton("do", "RUN", align = "center"),
         
         h6("By Nacho Garcia 2018", align = "left"),
-        tags$a(href="www.rstudio.com", "Source Code")
+        tags$a(href="https://github.com/garcia-nacho/R-Modeling/blob/master/ElectricalFilter/app.R", "Source Code")
         
         
         
