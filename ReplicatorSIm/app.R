@@ -1,4 +1,4 @@
-#  Numerical simulation for a low-pass filter
+#  Numerical simulation for eplicators interacting
 #  Nacho garcia 2018
 #  garcia.nacho ---AT--- gmail.com
 #  GPL v3
