@@ -1,6 +1,6 @@
 #  Numerical simulation for a low-pass filter
 #  Nacho garcia 2018
-#  garcia.nacho@gmail.com
+#  garcia.nacho--.AT.--gmail.com
 #  GPL v3
 
 #Library loading
