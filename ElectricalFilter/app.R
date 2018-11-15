@@ -1,6 +1,6 @@
 #  Numerical simulation for a low-pass filter
 #  Nacho garcia 2018
-#  garcia.nacho--.AT.--gmail.com
+#  garcia.nacho@gmail.com
 #  GPL v3
 
 #Library loading
@@ -24,17 +24,24 @@ ui <- fluidPage(
         
         h6("By Nacho Garcia 2018", align = "left"),
         tags$a(href="https://github.com/garcia-nacho/R-Modeling/blob/master/ElectricalFilter/app.R", "Source Code")
-        
-        
-        
+      
+
       ),
       
       # Plot
       mainPanel(
         
-         plotOutput("Plot")
-         
-         
+        tabsetPanel(
+          tabPanel("Plot", plotOutput("Plot")),
+          tabPanel("Table", tableOutput("table")),
+          tabPanel("Summary", verbatimTextOutput("summary")),
+          tabPanel("Info", htmlOutput("help"))
+        )
+        
+        
+        
+        
+
       )
    )
 )
@@ -44,7 +51,6 @@ server <- function(input, output) {
    
   observeEvent(input$do, {
 
-  
     Noise <- as.data.frame(1:200)
     stoch<-input$noise * 0.002
     IN <- runif(200, 0, stoch)
@@ -75,13 +81,30 @@ server <- function(input, output) {
       print(p)
       
     })
-  
-   
-  })        
+    
+    output$summary <- renderPrint({
+      summary(Signal.Noise)
+    })
+    
+    output$table <- renderTable({
+      Signal.Noise 
+    })
     
 
-}
 
+    
+    output$help <- renderUI({
+     HTML(paste("","","Electrical filters are combinations of electronic components that transform input signals into modified outputs and one of the most simple filters is the low-pass filter.", 
+"","Canonical low-pass filters consist of a resistor and a capacitor connected in parallel (see the scheme on the left) and they have been traditionally used to remove high frequencies from sigmoidal inputs. In this very specific situation, the cut-off frequencies can be calculated from the resistance and capacitance values and the behavior of the filter is very well understood; however, the role of low-pass filters in noise suppression has not been fully explored.",
+"",
+"I became interested in the relationship between low-pass filters and noise-suppression because all biological pathways are very reliable systems which need to effectively distinguish between noise and signal to provide fidelity in the response. Unfortunately, I found that the differential equations that describe the behavior of low-pass filters are not able to integrate the noise in the system in a useful way so to circumvent that problem I developed this numerical simulation.", 
+"","",
+"I hope you like it.", sep = "</br>"))
+    })
+    
+
+  })        
+}
 # Run the application 
 shinyApp(ui = ui, server = server)
 
