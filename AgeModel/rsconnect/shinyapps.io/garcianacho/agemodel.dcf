@@ -1,0 +1,10 @@
+name: agemodel
+title:
+username:
+account: garcianacho
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 577602
+bundleId: 1705893
+url: https://garcianacho.shinyapps.io/agemodel/
+when: 1542447517.36191
