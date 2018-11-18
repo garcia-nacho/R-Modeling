@@ -1,0 +1,10 @@
+name: forex
+title:
+username:
+account: garcianacho
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 578613
+bundleId: 1707485
+url: https://garcianacho.shinyapps.io/forex/
+when: 1542569039.55857
